@@ -8,10 +8,10 @@
   --border-color: hsl(var(--hue), 4%, 91%);
   --white-color: hsl(var(--hue), 4%, 100%);
 
-  --h1-font-size: 3.5rem;
-  --h2-font-size: 3rem;
+  --h1-font-size: 2.5rem;
+  --h2-font-size: 2rem;
   --h3-font-size: 1.5rem;
-  --large-font-size: 1.25rem;
+  --large-font-size: 1rem;
   --normal-font-size: 1rem;
   --small-font-size: 0.875rem;
   --smaller-font-size: 0.813rem;
@@ -27,7 +27,7 @@ body {
   color: var(--text-color);
   font-weight: var(--weight-500);
   font-size: var(--normal-font-size);
-
+}
   h1,
   h2,
   h3 {
@@ -56,4 +56,59 @@ body {
     display: block;
     max-width: 100%;
   }
+.button{
+  display: inline-block;
+  font-size: var(--small-font-size);
+  font-weight: var(--weight-600);
+  border-radius: 2rem;
+  padding: 1rem 4rem 1rem 1.5rem;
+  border: 1px solid var(--first-color);
+  color: var(--title-color);
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+.button:hover{
+  color: var(--white-color);
+}
+.button::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: var(--first-color);
+  transform: translateX(100%);
+  transition: all 0.3s ease;
+  z-index: -10;
+}
+.button:hover::before{
+  transform: translateX(0);
+}
+.button-icon{
+  position: absolute;
+  inset: -1px -1px -1px auto;
+  background-color: var(--first-color);
+  display: grid;
+  aspect-ratio: 1/1;
+  place-items: center;
+  border-radius: 50%;
+  font-size:  1.5rem;
+  color: var(--white-color);
+}
+
+.container{
+  max-width: 1000px;
+  padding-inline: 1rem;
+  margin-inline: auto;
+}
+.section{
+  padding-block: 3rem;
+}
+.section-title{
+  font-size: var(--h1-font-size);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.section-title span{
+  color: var(--first-color);
 }
