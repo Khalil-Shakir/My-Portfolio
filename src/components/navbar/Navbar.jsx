@@ -2,11 +2,13 @@ import { RiCloseLine, RiMenuLine } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 import { links } from "../../Database";
 import "./Navbar.css";
+import { useState } from "react";
 
 function Navbar() {
+  const [showMenu, setShowMenu] = useState(false)
   return (
     <nav className="nav">
-      <div className="nav-menu">
+      <div className={`${showMenu ? "nav-menu show-menu" : "nav-menu"}`}>
         <ul className="nav-list grid">
           {links.map(({ name, icon, path }, index) => {
             return (
@@ -16,6 +18,7 @@ function Navbar() {
                   className={({ isActive }) =>
                     isActive ? "nav-link active-nav" : "nav-link"
                   }
+                  onClick={()=> setShowMenu(!showMenu)}
                 >
                   {icon}
                   <h3 className="nav-name">{name}</h3>
@@ -24,9 +27,9 @@ function Navbar() {
             );
           })}
         </ul>
-        <RiCloseLine className="nav-close" />
+        <RiCloseLine className="nav-close" onClick={()=> setShowMenu(!showMenu)} />
       </div>
-      <div className="nav-toggle">
+      <div className="nav-toggle" onClick={()=> setShowMenu(!showMenu)}>
         <RiMenuLine />
       </div>
     </nav>
