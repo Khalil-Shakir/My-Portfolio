@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
+import Theme from "../theme/Theme"
 function AppLayout() {
   return (
     <div>
       <Navbar />
       <Outlet />
-      {/* <Themes /> */}
+      <Theme />
     </div>
   );
 }
